@@ -1,0 +1,49 @@
+{
+    "name": "laraware/shopping-bag",
+    "description": "A robust session-based shopping bag for Laravel",
+    "keywords": ["laravel", "shopping bag", "shopping", "bag"],
+    "homepage": "https://github.com/laraware/shopping-bag",
+    "license": "MIT",
+    "support": {
+        "issues": "https://github.com/laraware/shopping-bag/issues",
+        "source": "https://github.com/laraware/shopping-bag"
+    },
+    "authors": [
+        {
+            "name": "Wes Murray",
+            "homepage": "https://github.com/wesmx"
+        }
+    ],
+    "require": {
+        "php": "^7.3|^8.0",
+        "illuminate/support": "^7.0|^8.0",
+        "illuminate/session": "^7.0|^8.0",
+        "illuminate/container": "^7.0|^8.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^5.0|^6.0",
+        "phpunit/phpunit": "^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Laraware\\Bag\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Laraware\\Bag\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Laraware\\Bag\\BagServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
