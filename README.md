@@ -14,7 +14,7 @@ See the [CHANGELOG](CHANGELOG.md) in this repository for all the recent changes.
 
 # Maintainers
 
-Shopping Bag is developed and maintained by [Laraware](https://github.com/laraware)
+Shopping Bag is developed and maintained by [Laraware](https://github.com/laraware).
 
 # License
 
