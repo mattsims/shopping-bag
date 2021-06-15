@@ -6,7 +6,7 @@
 
 # Documentation
 
-Documentation for Shopping Bag can be found in the [docs repository]() [wip].
+Documentation for Shopping Bag can be found in the [docs repository](https://github.com/laraware/docs/tree/main/shopping-bag).
 
 # Changelog
 
