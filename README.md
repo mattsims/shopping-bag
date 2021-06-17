@@ -4,6 +4,8 @@
 
 <p align="center">A robust session-based shopping bag for Laravel</p>
 
+<p align="center"><a href="https://github.com/laraware/docs/tree/main/shopping-bag">Go to documentation</a></p>
+
 # Documentation
 
 Documentation for Shopping Bag can be found in the [docs repository](https://github.com/laraware/docs/tree/main/shopping-bag).
