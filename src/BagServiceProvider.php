@@ -7,14 +7,19 @@ use Illuminate\Support\ServiceProvider;
 
 class BagServiceProvider extends ServiceProvider
 {
-    /**
-     * Register services.
-     *
-     * @return void
-     */
+    public function boot()
+    {
+        $this->registerConfig();
+    }
+
     public function register()
     {
         $this->registerBag();
+    }
+
+    protected function registerConfig()
+    {
+        $this->mergeConfigFrom(__DIR__.'/../config/shopping-bag.php', 'shopping-bag');
     }
 
     protected function registerBag()
