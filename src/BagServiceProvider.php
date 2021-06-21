@@ -10,6 +10,7 @@ class BagServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerConfig();
+        $this->publishesConfig();
     }
 
     public function register()
@@ -20,6 +21,13 @@ class BagServiceProvider extends ServiceProvider
     protected function registerConfig()
     {
         $this->mergeConfigFrom(__DIR__.'/../config/shopping-bag.php', 'shopping-bag');
+    }
+
+    protected function publishesConfig()
+    {
+        $this->publishes([
+            __DIR__.'/../config/shopping-bag.php' => config_path('shopping-bag.php'),
+        ]);
     }
 
     protected function registerBag()

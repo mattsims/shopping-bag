@@ -117,7 +117,7 @@ class Bag
         return $this->get()->count();
     }
 
-    public function getSubTotal()
+    public function getSubTotal($autoFormatValue = false)
     {
         $content = $this->get();
 
@@ -126,10 +126,10 @@ class Bag
                 return $total;
             }
 
-            return $total + $item->getTotal();
+            return $total + $item->getTotal($autoFormatValue = false);
         }, 0);
 
-        if (!$this->shouldFormatValues()) {
+        if (!$autoFormatValue || !$this->shouldFormatValues()) {
             return $total;
         }
 
@@ -149,7 +149,7 @@ class Bag
                 return $total + $item->getPrice();
             }
 
-            return $total + $item->getTotal();
+            return $total + $item->getTotal($autoFormatValue = false);
         }, 0);
 
         if (!$this->shouldFormatValues()) {
