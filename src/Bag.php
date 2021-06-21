@@ -4,10 +4,15 @@ namespace Laraware\Bag;
 
 use Closure;
 use Illuminate\Session\SessionManager;
+use Laraware\Bag\Concerns\HasCurrencies;
+use Laraware\Bag\Concerns\HasFormatting;
 use Laraware\Bag\Item\Item;
 
 class Bag
 {
+    use HasCurrencies;
+    use HasFormatting;
+
     protected $session;
 
     protected $instance;
@@ -124,7 +129,11 @@ class Bag
             return $total + $item->getTotal();
         }, 0);
 
-        return $total;
+        if (!$this->shouldFormatValues()) {
+            return $total;
+        }
+
+        return $this->formatValue($total);
     }
 
     public function getTotal()
@@ -143,7 +152,11 @@ class Bag
             return $total + $item->getTotal();
         }, 0);
 
-        return $total;
+        if (!$this->shouldFormatValues()) {
+            return $total;
+        }
+
+        return $this->formatValue($total);
     }
 
     public function isEmpty()

@@ -3,9 +3,14 @@
 namespace Laraware\Bag\Item;
 
 use Exception;
+use Laraware\Bag\Concerns\HasCurrencies;
+use Laraware\Bag\Concerns\HasFormatting;
 
 class Item
 {
+    use HasCurrencies;
+    use HasFormatting;
+
     protected $hash;
 
     protected $name;
@@ -45,7 +50,7 @@ class Item
 
     public function getTotal()
     {
-        $total = $this->getSubTotal();
+        $total = $this->getPrice() * $this->getQuantity();
 
         if ($this->getCharges()) {
             foreach ($this->getCharges() as $charge) {
@@ -59,7 +64,11 @@ class Item
             }
         }
 
-        return $total;
+        if (!$this->shouldFormatValues()) {
+            return $total;
+        }
+
+        return $this->formatValue($total);
     }
 
     public function getProperties()
@@ -122,7 +131,13 @@ class Item
 
     public function getSubTotal()
     {
-        return $this->price * $this->quantity;
+        $subTotal = $this->getPrice() * $this->getQuantity();
+
+        if (!$this->shouldFormatValues()) {
+            return $subTotal;
+        }
+
+        return $this->formatValue($subTotal);
     }
 
     public function getQuantity()
