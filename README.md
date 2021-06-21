@@ -4,6 +4,12 @@
 
 <p align="center">A robust session-based shopping bag for Laravel</p>
 
+<p align="center">
+    <a href="https://packagist.org/packages/laraware/shopping-bag"><img src="https://img.shields.io/packagist/dt/laraware/shopping-bag" alt="Total Downloads"></a>
+    <a href="https://packagist.org/packages/laraware/shopping-bag"><img src="https://img.shields.io/packagist/v/laraware/shopping-bag" alt="Latest Stable Version"></a>
+    <a href="https://packagist.org/packages/laraware/shopping-bag"><img src="https://img.shields.io/packagist/l/laraware/shopping-bag" alt="License"></a>
+</p>
+
 <p align="center"><a href="https://github.com/laraware/docs/tree/main/shopping-bag">Go to documentation</a></p>
 
 # Documentation
