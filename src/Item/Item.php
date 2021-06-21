@@ -48,13 +48,28 @@ class Item
         $this->setHash();
     }
 
-    public function getTotal($autoFormatValue = true)
+    public function getFormattedTotal()
     {
-        $total = $this->getPrice() * $this->getQuantity();
+        return $this->formatValue($this->getTotal());
+    }
+
+    public function getFormattedSubTotal()
+    {
+        return $this->formatValue($this->getSubTotal());
+    }
+
+    public function getFormattedPrice()
+    {
+        return $this->formatValue($this->getPrice());
+    }
+
+    public function getTotal()
+    {
+        $total = $this->getSubTotal();
 
         if ($this->getCharges()) {
             foreach ($this->getCharges() as $charge) {
-                $total += $charge->getPrice();
+                $total += $charge->getTotal();
             }
         }
 
@@ -64,11 +79,7 @@ class Item
             }
         }
 
-        if (!$autoFormatValue || !$this->shouldFormatValues()) {
-            return $total;
-        }
-
-        return $this->formatValue($total);
+        return $total;
     }
 
     public function getProperties()
@@ -102,9 +113,11 @@ class Item
 
     public function setCharges(...$charges)
     {
-        $this->charges = $charges;
+        collect($charges)->map(function (ItemCharge $charge) {
+            $charge->setQuantity($this->getQuantity());
+        });
 
-        return $this;
+        $this->charges = $charges;
     }
 
     public function getNotes()
@@ -131,13 +144,7 @@ class Item
 
     public function getSubTotal()
     {
-        $subTotal = $this->getPrice() * $this->getQuantity();
-
-        if (!$this->shouldFormatValues()) {
-            return $subTotal;
-        }
-
-        return $this->formatValue($subTotal);
+        return $this->getPrice() * $this->getQuantity();
     }
 
     public function getQuantity()

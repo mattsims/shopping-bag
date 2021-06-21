@@ -1,5 +1,11 @@
 # Release Notes
 
+## Releases
+
+[## v1.0.0 (2021-06-21)](https://github.com/laraware/shopping-bag/releases/tag/1.0.0)
+
+## Pre-Releases
+
 [## v0.0.3 (2021-06-21)](https://github.com/laraware/shopping-bag/releases/tag/0.0.3)
 
 * Added the ability to publish the configuration file [#2](https://github.com/laraware/shopping-bag/pull/2)

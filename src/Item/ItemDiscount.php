@@ -3,9 +3,14 @@
 namespace Laraware\Bag\Item;
 
 use Exception;
+use Laraware\Bag\Concerns\HasCurrencies;
+use Laraware\Bag\Concerns\HasFormatting;
 
 class ItemDiscount
 {
+    use HasCurrencies;
+    use HasFormatting;
+
     protected $hash;
 
     protected $name;
@@ -31,6 +36,11 @@ class ItemDiscount
         $this->setAttributes($attributes);
 
         $this->setHash();
+    }
+
+    public function getFormattedPrice()
+    {
+        return $this->formatValue($this->getPrice());
     }
 
     public function getHash()
