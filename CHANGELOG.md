@@ -2,19 +2,19 @@
 
 ## Releases
 
-[## v1.0.0 (2021-06-21)](https://github.com/laraware/shopping-bag/releases/tag/1.0.0)
+### v1.0.0 (2021-06-21)
 
 ## Pre-Releases
 
-[## v0.0.3 (2021-06-21)](https://github.com/laraware/shopping-bag/releases/tag/0.0.3)
+### v0.0.3 (2021-06-21)
 
-* Added the ability to publish the configuration file [#2](https://github.com/laraware/shopping-bag/pull/2)
-* Fixed breaking changes [#2](https://github.com/laraware/shopping-bag/pull/2)
+* Added the ability to publish the configuration file
+* Fixed breaking changes
 
-[## v0.0.2 (2021-06-21)](https://github.com/laraware/shopping-bag/releases/tag/0.0.2)
+### v0.0.2 (2021-06-21)
 
-Added currency and formatting support. [#1](https://github.com/laraware/shopping-bag/pull/1)
+Added currency and formatting support
 
-## v0.0.1 (2021-06-15)
+### v0.0.1 (2021-06-15)
 
 Initial release.
