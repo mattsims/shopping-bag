@@ -24,6 +24,16 @@ class Bag
         $this->instance = $instance;
     }
 
+    public function getFormattedTotal()
+    {
+        return $this->formatValue($this->getTotal());
+    }
+
+    public function getFormattedSubTotal()
+    {
+        return $this->formatValue($this->getSubTotal());
+    }
+
     public function getDiscountsCount()
     {
         return $this->getDiscounts()->count();
@@ -117,7 +127,7 @@ class Bag
         return $this->get()->count();
     }
 
-    public function getSubTotal($autoFormatValue = false)
+    public function getSubTotal()
     {
         $content = $this->get();
 
@@ -126,14 +136,10 @@ class Bag
                 return $total;
             }
 
-            return $total + $item->getTotal($autoFormatValue = false);
+            return $total + $item->getTotal();
         }, 0);
 
-        if (!$autoFormatValue || !$this->shouldFormatValues()) {
-            return $total;
-        }
-
-        return $this->formatValue($total);
+        return $total;
     }
 
     public function getTotal()
@@ -149,14 +155,10 @@ class Bag
                 return $total + $item->getPrice();
             }
 
-            return $total + $item->getTotal($autoFormatValue = false);
+            return $total + $item->getTotal();
         }, 0);
 
-        if (!$this->shouldFormatValues()) {
-            return $total;
-        }
-
-        return $this->formatValue($total);
+        return $total;
     }
 
     public function isEmpty()

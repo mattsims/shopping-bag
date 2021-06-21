@@ -3,14 +3,21 @@
 namespace Laraware\Bag\Item;
 
 use Exception;
+use Laraware\Bag\Concerns\HasCurrencies;
+use Laraware\Bag\Concerns\HasFormatting;
 
 class ItemCharge
 {
+    use HasCurrencies;
+    use HasFormatting;
+
     protected $hash;
 
     protected $name;
 
     protected $price;
+
+    protected $quantity;
 
     protected $attributes;
 
@@ -31,6 +38,31 @@ class ItemCharge
         $this->setAttributes($attributes);
 
         $this->setHash();
+    }
+
+    public function getFormattedTotal()
+    {
+        return $this->formatValue($this->getTotal());
+    }
+
+    public function getTotal()
+    {
+        return $this->getPrice() * $this->getQuantity();
+    }
+
+    public function getQuantity()
+    {
+        return $this->quantity;
+    }
+
+    public function setQuantity(int $quantity)
+    {
+        $this->quantity = $quantity;
+    }
+
+    public function getFormattedPrice()
+    {
+        return $this->formatValue($this->getPrice());
     }
 
     public function getHash()

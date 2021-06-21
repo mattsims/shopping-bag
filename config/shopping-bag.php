@@ -3,7 +3,6 @@
 return [
     'formatting' => [
         'decimals' => 2,
-        'format_values' => false,
         'decimal_separator' => '.',
         'thousands_separator' => ',',
     ],

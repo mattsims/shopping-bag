@@ -9,11 +9,6 @@ trait HasFormatting
         return $this->getDefaultCurrencySymbol().number_format($value, $this->getDecimals(), $this->getDecimalSeparator(), $this->getThousandsSeparator());
     }
 
-    protected function shouldFormatValues()
-    {
-        return config('shopping-bag.formatting.format_values', true);
-    }
-
     protected function getThousandsSeparator()
     {
         return config('shopping-bag.formatting.thousands_separator', ',');
