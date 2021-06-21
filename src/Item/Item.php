@@ -48,7 +48,7 @@ class Item
         $this->setHash();
     }
 
-    public function getTotal()
+    public function getTotal($autoFormatValue = true)
     {
         $total = $this->getPrice() * $this->getQuantity();
 
@@ -64,7 +64,7 @@ class Item
             }
         }
 
-        if (!$this->shouldFormatValues()) {
+        if (!$autoFormatValue || !$this->shouldFormatValues()) {
             return $total;
         }
 
