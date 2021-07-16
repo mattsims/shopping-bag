@@ -1,5 +1,7 @@
 <?php
 
+namespace Tests\Unit;
+
 use Laraware\Bag\Item\Item;
 use Laraware\Bag\Item\ItemProperty;
 use PHPUnit\Framework\TestCase;
