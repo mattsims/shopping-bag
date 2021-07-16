@@ -3,6 +3,7 @@
 namespace Laraware\Bag\Item;
 
 use Exception;
+use Illuminate\Support\Collection;
 use Laraware\Bag\Concerns\HasCurrencies;
 use Laraware\Bag\Concerns\HasFormatting;
 
@@ -92,6 +93,22 @@ class Item
         $this->properties = $properties;
 
         return $this;
+    }
+
+    /**
+     * Get a property value by name.
+     *
+     * @param  string  $name
+     * @return mixed|null
+     */
+    public function getPropertyValue($name)
+    {
+        $key = Collection::make($this->properties)
+            ->search(function ($property) use ($name) {
+                return $name === $property->getName();
+            });
+
+        return false !== $key ? $this->properties[$key]->getValue() : null;
     }
 
     public function getDiscounts()
